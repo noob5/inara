@@ -1,9 +1,6 @@
 $( document ).ready(function() {
   // Handler for .ready() called.
 	// Print page
-	function printPage(){
-		window.print();
-	}
 
 	// Ace Code Display
 	var editor = ace.edit("editor");
@@ -27,3 +24,6 @@ $( document ).ready(function() {
 	});
 });
 
+	function printPage(){
+		window.print();
+	}
