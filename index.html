@@ -70,12 +70,12 @@
       </div>
 
       <div  class="col-md-offset-1 col-md-10 tutorial">
-        <img class="center" src="./src/img/logo.PNG" alt=""/>
+        <img class="center" src="./src/img/Head.PNG" alt=""/>
         <div name="chapter1">
           <h2>1. Kurzbeschreibung</h2>
           <b>INARA</b> (<b>IN</b>tegrity <b>A</b>ssessment for <b>R</b>ailway <b>A</b>xles) ist eine Software zur Berechnung des Ermüdungsrisswachstums in Radsatzwellen. Mögliche Einsatzgebiete sind Lebensdauerberechnungen in Konstruktion, Instandhaltung und Schadensanalyse. Das Risswachstum kann mittels verschiedener frei wählbarer Rissfortschrittsgesetze unter Verwendung unterschiedlicher Integrationsmethoden bis zu einem definierbaren Abbruchkriterium berechnet werden.
           Das Programm besteht aus einer graphischen Benutzeroberfläche (GUI) und einem textbasierten Solver. Die Berechnung selbst erfolgt im Solver, der eine Datei mit sämtlichen notwendigen Parametern (Inputfile, *.json) erwartet. Das Inputfile kann vom Benutzer selbst erstellt werden; der einfachere Weg ist aber, das Inputfile in der graphischen Benutzeroberfläche automatisch erstellen zu lassen; die Benutzeroberfläche ermöglicht auch den Aufruf des Solvers und das Betrachten der Ergebnisse.
-          Die Ergebnisse einer Berechnung werden in einer Datenbank (*.db) gespeichert, auf welche mit Hilfe einer vom Solver erstellten Datei (Ergebnisfile, wie das Inputfile im *.json-Format) und der graphischen Benutzeroberfläche von INARA zugegriffen werden kann. Hier können die berechneten Rissfortschrittsdaten beliebig kombiniert und in Diagrammen graphisch dargestellt oder in Tabellenform exportiert werden. Ebenso ist es möglich, einen Bericht über die jeweilige Berechnung automatisiert erzeugen zu lassen, welcher in Form einer PDF-Datei erstellt wird. Dieser Bericht protokolliert zusätzlich zu den Ergebnissen einer Berechnung auch sämtliche vom Anwender getätigten Eingaben.
+          Die Ergebnisse einer Berechnung werden in einer Datenbank (*.db) gespeichert, auf welche mit Hilfe der graphischen Benutzeroberfläche von INARA zugegriffen werden kann. Hier können die berechneten Rissfortschrittsdaten beliebig kombiniert und in Diagrammen graphisch dargestellt oder in Tabellenform exportiert werden. Außerdem ist es möglich einen Bericht erstellen zu lassen. Der Bericht ist eine PDF-Datei. Er protokolliert zusätzlich zu den Ergebnissen einer Berechnung auch sämtliche vom Anwender getätigten Eingaben.
           Im Folgenden wird in Abschnitt 2 die graphische Benutzeroberfläche von INARA und in Abschnitt 3 der Aufbau des Inputfiles beschrieben.
         </div>
         <div name="chapter2">
@@ -110,72 +110,136 @@
             Startkerbe sowie die Belastungsart eines zyklisch belasteten Bauteils zu definieren. Es stehen zwei
             verschiedene Modelle zur Auswahl: Achse bzw. SEB.
             <h3>Achse</h3>
+            <h4>Geometrie</h4>
             In Abb. 2 ist die Eingabemaske für eine zyklisch belastete Achse dargestellt. Die Größe der Achse wird
             über den Radius R (Abb. 2-1) definiert. Es kann der Rissfortschritt sowohl in einer Vollwelle als auch
             in einer Hohlwelle berechnet werden. Um den Innradius einer Hohlwelle eingeben zu können, muss
-            vorher die Checkbox neben dem Innenradius Ri angehakt sein (Abb. 2-2).
-            Zur Berechnung des Risses kann ein halbelliptischer Startriss (bzw. Startkerbe) über die Risstiefe a0
-            und das Halbachsenverhältnis a/c festgelegt werden (Abb. 2-3).
+            vorher die Checkbox neben dem Innenradius Ri angehakt sein.
+            Zur Berechnung des Risses wird ein halbelliptischer Startriss (bzw. Startkerbe) über die Risstiefe a0
+            und das Halbachsenverhältnis a/c festgelegt (Abb. 2-2).
             Die eingegebenen Achs- bzw. Rissgeometrien werden auch graphisch dargestellt. Zum erstmaligen
             Zeichnen oder zum Aktualisieren der Vorschau muss auf den Button mit dem grünen Häkchen
-            geklickt werden (Abb. 2-4).
-            Die bei der Rissfortschrittsberechnung auftretenden Spannungen werden in Primärspannungen und
-            Sekundärspannungen gegliedert. Primärspannungen entsprechen den auftretenden Lastspannungen
-            und werden in Schritt 2 definiert. Sekundärspannungen beschreiben hingegen eventuell vorhandene
-            Eigenspannungsfelder oder Spannungsfelder durch den Presssitz. Solche Eigenspannungsfelder
-            können aus Dateien eingelesen (Abb. 2-5), graphisch dargestellt (Abb. 2-6) und auch wieder entfernt
-            (Abb. 2-7) werden. Diese sekundären Spannungsfelder haben eine radialsymmetrische
-            Spannungsverteilung. Die Überlagerung des Eigenspannungsfeldes mit den Lastspannungen
-            (Biegespannungen) zum Gesamtspannungsfeld kann in INARA ebenfalls grafisch dargestellt werden.
-            Dazu müssen nur ein Spannungsverhältnis und eine Spannungsamplitude für die Biegespannung
-            definiert werden (Abb. 2-8) und dann auf den Button Abb. 2-10 gedrückt werden. Um sich den
-            Verlauf des Biegespannungsfeldes ohne Einfluss der Eigenspannungen darstellen zu lassen, muss
-            man hingegen den Button Abb. 2-9 betätigen. (ACHTUNG: Diese Definition der Biegespannung dient
+            geklickt werden (Abb. 2-2).
+            <h4>Spannungsfeld</h4>
+            Die bei der Rissfortschrittsberechnung auftretenden Spannungen werden in Eigenspannungen und
+            Biegespannungen aufgeteilt. Biegespannungen entsprechen den auftretenden Lastspannungen
+            und werden in Schritt 2 definiert.
+            <h5>Eigenspannung (Abb. 2-4)</h5>
+            Eigenspannungen beschreiben hingegen eventuell vorhandene Eigenspannungsfelder oder Spannungsfelder durch
+            den Presssitz. Solche Eigenspannungsfelder können aus Dateien eingelesen (Abb. 2-5), graphisch dargestellt
+            (Abb. 2-11) und auch wieder entfernt werden (Abb. 2-6). Eigenspannungsfelder haben eine radialsymmetrische
+            Spannungsverteilung und müssen intern gefittet werden hierzu kann im Dropdownmenü (Abb. 2-7) ein fit oder
+            die WFM-Methode gewählt werden.Um beurteilen zu können welcher Fit am besten zu den gewählten Daten passt
+            kann man sich ein Diagramm mit den Fits anzeigen lassen (Abb. 2-8).
+            <h5>Biegespannung (Abb. 2-9)</h5>
+            Das Biegespannungsfeld kann entweder analytisch errechnet werden. Dies führt naturgemäß zu einem gleichmäßigen Gradienten.
+            Aber es kann auch eine Datei eingelesen werden die ein ungleichmäßiges Biegespannungsfeld enthält.
+            Um den Verlauf des Biegespannungsfeldes darstellen zu lassen, muss
+            man den Button Abb. 2-10 betätigen. (ACHTUNG: Diese Definition der Biegespannung dient
             nur der optischen Darstellung und hat nichts mit der späteren Rissfortschrittsberechnung zu tun!)
+            <h4>Belastungsart</h4>
             Letztendlich kann auch noch zwischen zwei verschiedenen Belastungsarten gewählt werden, nämlich
-            der reinen Biegung und der Umlaufbiegung (Abb. 2-11).
-            <img class="center" src="./src/img/pic2.PNG" alt=""/>
+            der reinen Biegung und der Umlaufbiegung (Abb. 2-12).
+            <img class="center" src="./src/img/geometry_axle.PNG" alt=""/>
           <div class="subtitle">
-            <b>Abbildung 2.</b> Eingabemaske für Modellgeometrie Achse. 1-Definition Wellenradius; 2-Auswahl Vollwelle oder Hohlwelle; 3-Definition Rissgeometrie (halbelliptischer Riss); 4-Darstellung bzw. Aktualisierung der
-            eingegebenen Wellengeometrie; 5-Einlesen eines vorhandenen Eigenspannungsfeldes; 6-grafische Darstellung des eingelesenen Eigenspannungsfeldes; 7-Entfernen des Eigenspannungsfeldes; 8-Definition
-            Spannungsverhältnis und Spannungsamplitude einer Biegespannung; 9-grafische Darstellung der definierten Biegespannung; 10-kombinierte grafische Darstellung von Eigenspannungsfeld und Biegespannung; 11-Definition der Belastungsart.
+            <b>Abbildung 2.</b> Eingabemaske für Modellgeometrie Achse.
+            1-Definition Wellengeometrie;
+            2-Definition Rissgeometrie (halbelliptischer Riss);
+            3-Darstellung bzw. Aktualisierung der eingegebenen Wellengeometrie;
+            4-Bereich Einenspannung;
+            5-Einlesen eines vorhandenen Eigenspannungsfeldes;
+            6-Entfernen des Eigenspannungsfeldes;
+            7-Auswahl für Fit oder WFM;
+            8-Vorschau für verschiedene Fits;
+            9-Berecih Biegespannung;
+            10-Biegespannungsfeld in der Vorschau anzeigen;
+            11-Eigenspannungsfeld in der Voorschau anzeigen;
+            12-Definition der Belastungsart.
           </div>
             <h3>SEB</h3>
-            Die Eingabemaske für einen zyklisch belasteten Flachstab (SEB-Probe) ist in Abb. 3 dargestellt. Die Geometrie des Flachstabes wird mit der Höhe W und der Dicke B (siehe Abb. 3-1) definiert. In diesem Flachstab kann nun das Risswachstum eines über die Dicke gleichmäßig wachsenden Risses mit einer Anfangsrisslänge a0 (Abb. 3-2) berechnet werden. Die Anfangsrisslänge a0 kann Werte > 0 und kleiner W annehmen. Die Geometrie des Flachstabes und die Anfangsrisslänge können beliebig verändert werden. Mit einem Klick auf das grüne Häkchen wird die Vorschau entsprechend den getätigten Veränderungen aktualisiert (Abb. 3-3).</br>
-            Zusätzlich ist es möglich, die Belastungsart auszuwählen (Abb. 3-4). Hier wird zwischen 3-, 4- und 8-Punkt-Biegebelastung unterschieden.
+                Die Eingabemaske für einen zyklisch belasteten Flachstab (SEB-Probe) ist in Abb. 3 dargestellt. Die
+                Geometrie des Flachstabes wird mit der Höhe W und der Dicke B (siehe Abb. 3-1) definiert. In diesem
+                Flachstab kann nun das Risswachstum eines über die Dicke gleichmäßig wachsenden Risses mit einer
+                Anfangsrisslänge a0 (Abb. 3-2) berechnet werden. Die Anfangsrisslänge a0 kann Werte > 0 und kleiner W
+                annehmen. Die Geometrie des Flachstabes und die Anfangsrisslänge können beliebig verändert werden. Mit
+                einem Klick auf das grüne Häkchen wird die Vorschau entsprechend den getätigten Veränderungen
+                aktualisiert (Abb. 3-3).</br>
+                Zusätzlich ist es möglich, die Belastungsart auszuwählen (Abb. 3-4). Hier wird zwischen Drei-, Vier- und
+                Achtpunkt-Biegebelastung unterschieden.
           </div>
-            <img class="center" src="./src/img/pic3.PNG" alt=""/>
+            <img class="center" src="./src/img/geometry_seb.PNG" alt=""/>
             <div class="subtitle">
-              <b>Abbildung 3.</b> Eingabemaske für Modellgeometrie SEB. 1-Definition Probengeometrie; 2-Definition Anfangsrisslänge; 3-Darstellung bzw. Aktualisierung der eingegebenen Biegeprobengeometrie; 5-Definition der Belastungsart.
+              <b>Abbildung 3.</b> Eingabemaske für Modellgeometrie SEB.
+                1-Definition Probengeometrie;
+                2-Definition Anfangsrisslänge;
+                3-Darstellung bzw. Aktualisierung der eingegebenen Biegeprobengeometrie;
+                4-Definition der Belastungsart.
             </div>
           <div name="Blockdefinition (Schritt 2)">
             <h3>Blockdefinition (Schritt 2)</h3>
-            In diesem Schritt können Blocklastfolgen erstellt und bearbeitet werden. Eine neue Blocklastfolge kann entweder mit einem Doppelklick auf ‚Blockdefinition‘ im Navigationsbereich oder durch Drücken eines Buttons im Eingabebereich hinzugefügt werden. Im Eingabebereich befindet sich auch ein Button zum Einlesen bereits vorhandener Blocklastfolgen. Neu hinzugefügte Blocklastfolgen werden automatisch benannt (Blocklastfolge 0 .. Blocklastfolge X) und sofort im Navigationsbereich angezeigt. Mit Rechtsklick auf eine bestimmte Blocklastfolge kann diese umbenannt oder gelöscht werden.</br>
-            Jede Blocklastfolge kann eine beliebige Anzahl an Blöcken enthalten. Die einzelnen Blocklasten werden mit der Anzahl der Lastwechsel N (oder der kumulierten Lastwechsel N), dem Spannungsverhältnis R$_\sigma$ und der Spannungsamplitude $\sigma_a$ definiert (Abb. 4). Die einzelnen Blöcke werden mit einer fortlaufenden Zahl gekennzeichnet (Abb. 4-10). Durch einen Mausklick auf diese fortlaufende Zahl wird der jeweilige Block markiert. Über eine Buttonleiste ist es möglich, einen neuen Block hinzuzufügen (Abb. 4-1), einen markierten Block zu löschen (Abb. 4-2), zu kopieren (Abb. 4-3) oder einzufügen (Abb. 4-4). Die Position eines markierten Blocks kann innerhalb einer Blocklastfolge nach oben bzw. nach unten (Abb. 4-5) verschoben werden. Um die Gesamtzahl der Lastwechsel einer bestehenden Blocklastfolge – bei gleichbleibendem Verhältnis der Dauer der einzelnen Blöcke zueinander – zu kürzen, kann ein Divisor angegeben werden, durch welchen die Lastwechsel der aktuellen Blocklastfolge geteilt werden (Abb. 4-6). Die neu erzeugte Blocklastfolge wird automatisch im Navigationsbereich eingefügt und kann weiter bearbeitet werden. Ist der Divisor größer als die kleinste Blockdauer (Anzahl der Lastwechsel eines Blocks), dann kann die entsprechende Blocklastfolge nicht aufgeteilt werden.</br>
+            In diesem Schritt können Blocklastfolgen erstellt und bearbeitet werden. Eine neue Blocklastfolge kann
+            entweder mit einem Doppelklick auf ‚Blockdefinition‘ im Navigationsbereich oder durch Drücken eines Buttons
+            im Eingabebereich hinzugefügt werden. Im Eingabebereich befindet sich auch ein Button zum Einlesen bereits
+            vorhandener Blocklastfolgen. Neu hinzugefügte Blocklastfolgen werden automatisch benannt
+            (Blocklastfolge 0 .. Blocklastfolge X) und sofort im Navigationsbereich angezeigt. Mit Rechtsklick auf eine
+            bestimmte Blocklastfolge kann diese umbenannt oder gelöscht werden.<br>
+            Jede Blocklastfolge kann eine beliebige Anzahl an Blöcken enthalten. Die einzelnen Blocklasten werden mit
+            der Anzahl der Lastwechsel N (oder der kumulierten Lastwechsel N), dem Spannungsverhältnis R$_\sigma$ und
+            der Spannungsamplitude $\sigma_a$ definiert (Abb. 4). Die einzelnen Blöcke werden mit einer fortlaufenden
+            Zahl gekennzeichnet (Abb. 4-10). Durch einen Mausklick auf diese fortlaufende Zahl wird der jeweilige Block
+            markiert. Über eine Buttonleiste ist es möglich, einen neuen Block hinzuzufügen (Abb. 4-1), einen markierten
+            Block zu löschen (Abb. 4-2), zu kopieren (Abb. 4-3) oder einzufügen (Abb. 4-4). Die Position eines
+            markierten Blocks kann innerhalb einer Blocklastfolge nach oben bzw. nach unten (Abb. 4-5) verschoben
+            werden. Um die Gesamtzahl der Lastwechsel einer bestehenden Blocklastfolge – bei gleichbleibendem Verhältnis
+            der Dauer der einzelnen Blöcke zueinander – zu kürzen, kann ein Divisor angegeben werden, durch welchen die
+            Lastwechsel der aktuellen Blocklastfolge geteilt werden (Abb. 4-6). Die neu erzeugte Blocklastfolge wird
+            automatisch im Navigationsbereich eingefügt und kann weiter bearbeitet werden. Ist der Divisor größer als
+            die kleinste Blockdauer (Anzahl der Lastwechsel eines Blocks), dann kann die entsprechende Blocklastfolge
+            nicht aufgeteilt werden.<br>
             Um eine Blocklastfolge zu löschen, stehen zwei Möglichkeiten zur Verfügung:
             <ol>
               <li>Durch einen Klick mit der rechten Maustaste auf die entsprechende Blocklastfolge (ein Popup-Fenster erscheint).</li>
               <li>Durch Betätigen des Entfernen-Buttons (Abb. 4-7).</li>
             </ol>
             Erstellte Blocklastfolgen können auch in Dateien abgespeichert (Abb. 4-6) bzw. grafisch dargestellt werden (Abb. 4-9, Abb. 5).
-            <img class="center" src="./src/img/pic4.PNG" alt=""/>
+            <img class="center" src="./src/img/loads_data.PNG" alt=""/>
             <div class="subtitle">
-              <b>Abbildung 4.</b> Eingabemaske für die Definition von Blöcken. 1-Neue Blocklast hinzufügen; 2-Aktuell ausgewählte Blocklast löschen; 3-Ausgewählte Blocklast kopieren; 4-Ausgewählte Blocklast durch Kopie ersetzen; 5-Ausgewählte Zeile verschieben; 6-Erstellen einer neuen Blocklastfolge durch Division der aktuellen Blocklastfolge; 7-Gesamte Liste (aktuelle Blocklastfolge) löschen; 8-Speichern/Speichern unter der aktuellen Blocklastfolge; 9-Vorschau der Blocklastfolge erstellen/aktualisieren; 10-laufende Nummer der einzelnen Blöcke einer Blocklastfolge.
+              <b>Abbildung 4.</b> Eingabemaske für die Definition von Blöcken.
+              1-Neue Blocklast hinzufügen;
+              2-Aktuell ausgewählte Blocklast löschen;
+              3-Ausgewählte Blocklast kopieren;
+              4-Ausgewählte Blocklast durch Kopie ersetzen;
+              5-Ausgewählte Zeile verschieben;
+              6-Erstellen einer neuen Blocklastfolge durch Division der aktuellen Blocklastfolge;
+              7-Gesamte Liste (aktuelle Blocklastfolge) löschen;
+              8-Speichern/Speichern unter der aktuellen Blocklastfolge;
+              9-Vorschau der Blocklastfolge erstellen/aktualisieren;
+              10-laufende Nummer der einzelnen Blöcke einer Blocklastfolge.
+              11-Einellastauswahl
             </div>
-            <img class="center" src="./src/img/pic5.PNG" alt=""/>
+            <img class="center" src="./src/img/loads_preview.PNG" alt=""/>
             <div class="subtitle">
-              <b>Abbildung 5.</b> Vorschau der aktuellen Blocklastfolge. 1-ursprüngliche Diagrammdarstellung wiederherstellen; 2-zur vorhergehenden bzw. nächsten Diagrammansicht wechseln; 3- Verschieben; 4-Vergrößern (linke Maustaste) bzw. Verkleinern (rechte Maustaste); 5-Speichern der aktuellen Darstellung; 6-Diagrammoptionen.
+              <b>Abbildung 5.</b> Vorschau der aktuellen Blocklastfolge.
+              1-ursprüngliche Diagrammdarstellung wiederherstellen;
+              2-zur vorhergehenden bzw. nächsten Diagrammansicht wechseln;
+              3- Verschieben;
+              4-Vergrößern (linke Maustaste) bzw. Verkleinern (rechte Maustaste);
+              5-Speichern der aktuellen Darstellung;
+              6-Diagrammoptionen.
             </div>
           </div>
           <div name="Last-Zeit-Reihenfolge (Schritt 3)">
             <h3>Last-Zeit-Reihenfolge (Schritt 3)</h3>
-            Im Schritt 3 wird nun die Last-Zeit-Reihenfolge (LZR) festgelegt, welche zur Rissfortschrittsberechnung herangezogen werden soll. Dieses Last-Zeit-Reihenfolge kann sich aus einem oder beliebig vielen in Schritt 2 definierten Blocklastfolgen zusammensetzen (siehe Abb. 6).</br>Der Eingabebereich von Schritt 3 gliedert sich dazu in zwei Textfelder:
+            Im Schritt 3 wird nun die Last-Zeit-Reihenfolge (LZR) festgelegt, welche zur Rissfortschrittsberechnung
+              herangezogen werden soll. Dieses Last-Zeit-Reihenfolge kann sich aus einem oder beliebig vielen in
+              Schritt 2 definierten Blocklastfolgen zusammensetzen (siehe Abb. 6).<br>
+              Der Eingabebereich von Schritt 3 gliedert sich dazu in zwei Textfelder:
             <ul>
               <li>im linken Textfeld sind alle definierten Blocklastfolgen aufgelistet (Abb. 6-1) und</li>
               <li>im rechten Textfeld sidn diejenigen Blocklastfolgen die zur Berechnung des Rissfortschritts herangezogen werden (Abb. 6-2)</li>
             </ul>
             Um nun Blocklastfolgen bei der Berechnung zu berücksichtigen oder nicht, muss die entsprechende Blocklastfolge mittels Mausklick markiert und mit den in Abb. 6-3 gezeigten Pfeilen zur Last-Zeit-Reihenfolge für die Berechnung hinzugefügt oder eben entfernt werden. Alle Blocklastfolgen, die sich zum Zeitpunkt des Startens der Berechnung im rechten Fenster befinden, werden sequentiell von oben nach unten in der Rissfortschrittsberechnung berücksichtigt. Die Reihenfolge der Blocklastfolgen kann mittels Pfeil-oben bzw. Pfeil-unten geändert werden (Abb. 6-4). Erstellte Last-Zeit-Reihenfolgen können analog zu den Blocklastfolgen in Schritt 2 auch in Dateien abgespeichert (Abb. 6-5) bzw. grafisch dargestellt werden (Abb. 6-6).
-            <img class="center" src="./src/img/pic6.PNG" alt=""/>
+            <img class="center" src="./src/img/load_order.PNG" alt=""/>
             <div class="subtitle">
               <b>Abbildung 6.</b> Last-Zeit-Reihenfolge für Berechnung festlegen. 1-Anzeige aller zur Verfügung stehenden Blocklastfolgen; 2-Anzeige aller zur Berechnung verwendeten Blocklastfolgen; 3-Verschieben zwischen den beiden Anzeigen; 4-Reihung der Blocklastfolgen ändern; 5-Speichern der aktuellen Last-Zeit-Reihenfolge; 6-Vorschau der aktuellen Last-Zeit-Reihenfolge erstellen/aktualisieren.
             </div>
@@ -193,23 +257,30 @@
               <li><b>Tabellarisch</b></li>
               <p>Für dieses Materialmodell sind einzelne Punkte der Risswachstumskurve tabellarisch zu hinterlegen. Gleich wie beim Materialgesetz Bilinear müssen wieder mindestens zwei Werte für zwei verschiedene R-Werte angegeben werden.</p>
             </ol>
-            Die Eingabe und Bearbeitung der einzelnen Parameter erfolgt tabellarisch, wobei sich der Eingabebereich für die Materialgesetze 1-3 bis auf die unterschiedlichen Eingabeparameter nicht unterscheidet (siehe Abb. 7). Zur Berechnung des Rissfortschritts werden nur ausgewählte Datensätze (im Fall eines bilinearen Materialgesetzes, siehe auch Abb. 7-1) bzw. ein ausgewählter Datensatz (bei den Materialgesetzen NASGRO bzw. MCL-Kurzriss) herangezogen. Einmal erstellte Materialgesetze können in einer Datei gespeichert und bei anderen Berechnungen wieder eingelesen werden. Der aktuelle Dateipfad wird im Eingabefenster angezeigt (Abb. 7-2). Eine Vorschau der aktuell ausgewählte(n) Risswachstumskurve(n) erhält man über den in Abb. 7-3 dargestellten Button. </br>Der Eingabebereich für das tabellarische Materialgesetz unterscheidet sich von den anderen
+            Die Eingabe und Bearbeitung der einzelnen Parameter erfolgt tabellarisch, wobei sich der Eingabebereich für die Materialgesetze 1-3 bis auf die unterschiedlichen Eingabeparameter nicht unterscheidet (siehe Abb. 7). Zur Berechnung des Rissfortschritts werden nur ausgewählte Datensätze (im Fall eines bilinearen Materialgesetzes, siehe auch Abb. 7-1) bzw. ein ausgewählter Datensatz (bei den Materialgesetzen NASGRO bzw. MCL-Kurzriss) herangezogen. Einmal erstellte Materialgesetze können in einer Datei gespeichert und bei anderen Berechnungen wieder eingelesen werden. Der aktuelle Dateipfad wird im Eingabefenster angezeigt (Abb. 7-2). Eine Vorschau der aktuell ausgewählte(n) Risswachstumskurve(n) erhält man über den in Abb. 7-3 dargestellten Button. <br>
+              Der Eingabebereich für das tabellarische Materialgesetz unterscheidet sich von den anderen
             Materialgesetzen (siehe Abb. 8). Beim tabellarischen Materialgesetz muss für jeden R-Wert eine eigene Tabelle erstellt werden (Abb. 8-1), welche Spannungsintensitätsfaktoren und zugehörige Rissfortschrittsraten enthält. Alle definierten Rissfortschrittskurven werden in Registerform im Eingabefenster dargestellt, wobei man zwischen den verschiedenen Kurven (jede Kurve entspricht einem R-Wert) durch einen Mausklick auf das entsprechende Register hin- und herschalten kann (Abb. 8-2). Um eine Kurve für einen neuen R-Wert zu erstellen bzw. hinzuzufügen, muss der in Abb. 8-3 dargestellte Button gedrückt werden.
-            <img class="center" src="./src/img/pic7.PNG" alt=""/>
+            <img class="center" src="./src/img/material_law_bilinear.PNG" alt=""/>
             <div class="subtitle">
-              <b>Abbildung 7.</b> Eingabemaske Materialgesetz Bilinear. 1-Auswahl der zur Berechnung herangezogenen Datensätze; 2-Dateipfad des aktuellen Datensatzes; 3-Vorschau der ausgewählten Rissfortschrittskurven.
+              <b>Abbildung 7.</b> Eingabemaske Materialgesetz Bilinear.
+              1-Auswahl der zur Berechnung herangezogenen Datensätze;
+              2-Dateipfad des aktuellen Datensatzes;
+              3-Vorschau der ausgewählten Rissfortschrittskurven.
             </div>
-            <img class="center" src="./src/img/pic8.PNG" alt=""/>
+            <img class="center" src="./src/img/material_law_tabular.PNG" alt=""/>
             <div class="subtitle">
-              Eingabemaske Materialgesetz Tabellarisch. 1-Definition Rissfortschrittskurve für aktuellen R-Wert; 2-Umschalten zwischen definierten Rissfortschrittskurven; 3-Hinzufügen einer neuen Rissfortschrittskurve.
+              Eingabemaske Materialgesetz Tabellarisch.
+              1-Definition Rissfortschrittskurve für aktuellen R-Wert;
+              2-Umschalten zwischen definierten Rissfortschrittskurven;
+              3-Hinzufügen einer neuen Rissfortschrittskurve.
             </div>
           </div>
           <div name="Berechnen (Schritt 5)">
             <h3>Berechnen (Schritt 5)</h3>
             Die Berechnung des Rissfortschritts erfolgt auf Basis der in den Schritten 1-4 vorgegebenen Parameter. Im Schritt 5 kann noch ein Abbruchkriterium ausgewählt werden (siehe Abb. 9-1), wobei die Rissfortschrittsberechnung nach einer bestimmten Anzahl von Lastwechseln oder nach einer erreichten Risslänge abgebrochen werden kann. Wie genau die Rissfortschrittsrechnung durchgeführt werden soll, kann durch die in Abb. 9-2 dargestellten Einstellungen definiert werden. Dabei kann die Schrittweite der Integration N sowie die Anzahl der zu berücksichtigenden Nachkommastellen Rdigits definiert werden (je größer N bzw. je kleiner Rdigits, umso schneller – aber auch etwas ungenauer – erfolgt die Berechnung des Rissfortschrittes). Weiters kann zwischen verschiedenen Integrationsmethoden gewählt werden.
-            </br>
+            <br>
             Die in Abb. 9-3 gezeigten Extrapolations-Einstellungen sind nur bei den Materialgesetzen Bilinear und Tabellarisch zu definieren. Sie legen das minimale bzw. maximale zur Berechnung herangezogene Spannungsverhältnis Rmin bzw. Rmax fest. Tritt während der Rissfortschrittsrechnung ein Spannungsverhältnis kleiner als Rmin bzw. größer als Rmax auf, wird stattdessen mit den definierten Grenzwerten Rmin bzw. Rmax gerechnet.
-            </br>
+            <br>
             Es kann des Weiteren auch die Art und Weise definiert werden, wie eine Last-Zeit-Reihenfolge abgearbeitet werden soll (Abb. 9-4). Dabei kann zwischen Sequentiell und Gewichtet unterschieden werden:
             <p class="col-md-12"></p>
             <div class="col-md-10 col-md-offset-1">
@@ -231,15 +302,21 @@
             </div>
             <p class="col-md-12"></p>
             Gestartet wird eine Berechnung schließlich durch einen Mausklick auf ‚Solver starten‘ (Abb. 9-5). Eine laufende Berechnung kann auch jederzeit mit einem Klick auf den Button Abbrechen (Abb. 9-6) beendet werden. Die Ergebnisse der Berechnung sind dann im letzten Punkt des Navigationsbereiches Ergebnisse dargestellt.
-            <img class="center" src="./src/img/pic9.PNG" alt=""/>
+            <img class="center" src="./src/img/solve.PNG" alt=""/>
             <div class="subtitle">
-              <b>Abbildung 9.</b> Eingabemaske für Schritt 5: Berechnen. 1-Abbruchkriterium definieren; 2-Genauigkeit der Berechnung festlegen sowie Integrationsmethode definieren; 3-Extrapolationseinstellungen für Materialgesetzte Bilinear und Tabellarisch; 4-Abarbeitung der Last-Zeit-Reihenfolge definieren; 5- Berechnung starten; 6-laufende Berechnung abbrechen.
+              <b>Abbildung 9.</b> Eingabemaske für Schritt 5: Berechnen.
+              1-Abbruchkriterium definieren;
+              2-Genauigkeit der Berechnung festlegen sowie Integrationsmethode definieren;
+              3-Extrapolationseinstellungen für Materialgesetzte Bilinear und Tabellarisch;
+              4-Abarbeitung der Last-Zeit-Reihenfolge definieren;
+              5- Berechnung starten;
+              6-laufende Berechnung abbrechen.
             </div>
           </div>
           <div name="Ergebnisse">
             <h3>Ergebnisse</h3>
             Hier werden die Ergebnisse der durchgeführten Berechnungen aufgelistet und mit einer Zufallsbezeichnung versehen. Mittels Rechtsklick auf das entsprechende Ergebnisfile kann dieses umbenannt oder gelöscht werden.
-            </br>Ist ein File markiert, kann man sich die Ergebnisse der Rissfortschrittsberechnung graphisch darstellen lassen, wobei man frei wählen kann, welche Größen man auf der x- bzw. der y-Achse plotten will (siehe Abb. 10). Die Auswahlmöglichkeiten sind:
+            <br>Ist ein File markiert, kann man sich die Ergebnisse der Rissfortschrittsberechnung graphisch darstellen lassen, wobei man frei wählen kann, welche Größen man auf der x- bzw. der y-Achse plotten will (siehe Abb. 10). Die Auswahlmöglichkeiten sind:
             <ul class="no-decorator">
               <li>a <p class="col-md-offset-1">Risslänge [mm]</p></li>
                 
