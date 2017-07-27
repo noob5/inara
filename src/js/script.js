@@ -4,7 +4,7 @@ $( document ).ready(function() {
 
 	// Ace Code Display
 	var editor = ace.edit("editor");
-	editor.setTheme("ace/theme/XCode");
+	editor.setTheme("ace/theme/xcode");
 	editor.getSession().setMode("ace/mode/json");
 	editor.setReadOnly(true);
 	editor.resize();
