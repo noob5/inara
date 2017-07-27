@@ -278,12 +278,11 @@
           <div id="berechnen">
             <h3>Berechnen (Schritt 5)</h3>
             Die Berechnung des Rissfortschritts erfolgt auf Basis der in den Schritten 1-4 vorgegebenen Parameter. Im Schritt 5 kann noch ein Abbruchkriterium ausgewählt werden (siehe Abb. 9-1), wobei die Rissfortschrittsberechnung nach einer bestimmten Anzahl von Lastwechseln oder nach einer erreichten Risslänge abgebrochen werden kann. Wie genau die Rissfortschrittsrechnung durchgeführt werden soll, kann durch die in Abb. 9-2 dargestellten Einstellungen definiert werden. Dabei kann die Schrittweite der Integration N sowie die Anzahl der zu berücksichtigenden Nachkommastellen Rdigits definiert werden (je größer N bzw. je kleiner Rdigits, umso schneller – aber auch etwas ungenauer – erfolgt die Berechnung des Rissfortschrittes). Weiters kann zwischen verschiedenen Integrationsmethoden gewählt werden.
-            <br>
+            </br>
             Die in Abb. 9-3 gezeigten Extrapolations-Einstellungen sind nur bei den Materialgesetzen Bilinear und Tabellarisch zu definieren. Sie legen das minimale bzw. maximale zur Berechnung herangezogene Spannungsverhältnis Rmin bzw. Rmax fest. Tritt während der Rissfortschrittsrechnung ein Spannungsverhältnis kleiner als Rmin bzw. größer als Rmax auf, wird stattdessen mit den definierten Grenzwerten Rmin bzw. Rmax gerechnet.
-            <br>
+            </br>
             Es kann des Weiteren auch die Art und Weise definiert werden, wie eine Last-Zeit-Reihenfolge abgearbeitet werden soll (Abb. 9-4). Dabei kann zwischen Sequentiell und Gewichtet unterschieden werden:
-            <p class="col-md-12"></p>
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-11 col-md-offset-1">
               <div class="col-md-2">
                 Sequentiell:
               </div>
@@ -292,7 +291,7 @@
               </div>
             </div>
             <p class="col-md-12"></p>
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-11 col-md-offset-1">
               <div class="col-md-2">
                 Gewichtet:
               </div>
@@ -340,7 +339,8 @@
           (*.json) über die graphische Benutzeroberfläche zu erstellen. Da aber auch die Möglichkeit besteht,
           den Solver extra zu starten (mainsolver.exe), wird hier beispielhaft der Aufbau eines *.json-Files
           beschrieben.
-          <div id="editor">{"geometry_model": { # Definition Geometriemodell (Schritt 1)
+          <div id="editor">{
+            "geometry_model": { # Definition Geometriemodell (Schritt 1)
             "axle": {
             "R": 90.0, # Wellenradius
             "R_i": 15.0, # Wellenradius innen (Hohlwelle)
