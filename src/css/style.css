@@ -57,7 +57,7 @@
     right: 0px; /* On mouse-over, make the elements appear as they should */
 }
 
-/*#_1 {
+#_1 {
 	top:40px;
 }
 
@@ -91,7 +91,7 @@
 
 #_3 {
 	top: 520px;
-}*/
+}
 
 .sidenav{
   float: right;
