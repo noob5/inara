@@ -44,7 +44,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 <!--              <li><a href="http://aengelus.github.io">Home</a></li> -->
-              <li><a href="../aengelus.github.io/index.html">Home</a></li>
+              <li><a href="http://aengelus.github.io/index.html">Home</a></li>
               <li  class="active"><a href="http://aengelus.github.io/inara/index.html">INARA</a></li>
             </ul>
             <button class="btn btn-default navbar-btn navbtn pull-right" onclick="printPage()">Drucke Dokumentation</button>
@@ -58,27 +58,27 @@
       </nav>
 
       <div id="mySidenav" class="sidenav hidden">
-        <a class="btn btn-default" href="#" id="_1">1. Kurzbeschreibung</a>
-        <a class="btn btn-default" href="#" id="_2">2. Benutzeroberfläche</a>
-        <a class="btn btn-default" href="#" id="_2_1">Modell-Geometrie</a>
-        <a class="btn btn-default" href="#" id="_2_2">Blockdefinition</a>
-        <a class="btn btn-default" href="#" id="_2_3">Last-Zeit-Reihenfolge</a>
-        <a class="btn btn-default" href="#" id="_2_4">Materialgesetz</a>
-        <a class="btn btn-default" href="#" id="_2_5">Berechnen</a>
-        <a class="btn btn-default" href="#" id="_2_6">Ergebnisse</a>
-        <a class="btn btn-default" href="#" id="_3">3. Aufbau des Inputfiles</a>
+        <a class="btn btn-default" href="#chapter1" id="_1">1. Kurzbeschreibung</a>
+        <a class="btn btn-default" href="#chapter2" id="_2">2. Benutzeroberfläche</a>
+        <a class="btn btn-default" href="#modellGeometrie" id="_2_1">Modell-Geometrie</a>
+        <a class="btn btn-default" href="#blockdefinition" id="_2_2">Blockdefinition</a>
+        <a class="btn btn-default" href="#lastZeitReihenfolge" id="_2_3">Last-Zeit-Reihenfolge</a>
+        <a class="btn btn-default" href="#materialgesetz" id="_2_4">Materialgesetz</a></li>
+        <a class="btn btn-default" href="#berechnen" id="_2_5">Berechnen</a></li>
+        <a class="btn btn-default" href="#ergebnisse" id="_2_6">Ergebnisse</a></li>
+        <a class="btn btn-default" href="#chapter3" id="_3">3. Aufbau des Inputfiles</a></li>
       </div>
 
-      <div  class="col-md-offset-1 col-md-10 tutorial">
-        <img class="center" src="./src/img/Head.PNG" alt=""/>
-        <div name="chapter1">
+      <div  class="col-md-offset-1 col-md-10 tutorial" id="fullpage">
+        <img class="center" src="./src/img/Head.png" alt=""/>
+        <div id="chapter1">
           <h2>1. Kurzbeschreibung</h2>
           <b>INARA</b> (<b>IN</b>tegrity <b>A</b>ssessment for <b>R</b>ailway <b>A</b>xles) ist eine Software zur Berechnung des Ermüdungsrisswachstums in Radsatzwellen. Mögliche Einsatzgebiete sind Lebensdauerberechnungen in Konstruktion, Instandhaltung und Schadensanalyse. Das Risswachstum kann mittels verschiedener frei wählbarer Rissfortschrittsgesetze unter Verwendung unterschiedlicher Integrationsmethoden bis zu einem definierbaren Abbruchkriterium berechnet werden.
           Das Programm besteht aus einer graphischen Benutzeroberfläche (GUI) und einem textbasierten Solver. Die Berechnung selbst erfolgt im Solver, der eine Datei mit sämtlichen notwendigen Parametern (Inputfile, *.json) erwartet. Das Inputfile kann vom Benutzer selbst erstellt werden; der einfachere Weg ist aber, das Inputfile in der graphischen Benutzeroberfläche automatisch erstellen zu lassen; die Benutzeroberfläche ermöglicht auch den Aufruf des Solvers und das Betrachten der Ergebnisse.
           Die Ergebnisse einer Berechnung werden in einer Datenbank (*.db) gespeichert, auf welche mit Hilfe der graphischen Benutzeroberfläche von INARA zugegriffen werden kann. Hier können die berechneten Rissfortschrittsdaten beliebig kombiniert und in Diagrammen graphisch dargestellt oder in Tabellenform exportiert werden. Zusätzlich zur Datenbank werden die Ergebnisse nach Abschluss einer Rechnung nochmals aus der Datenbank ausgelesen und in ein Textfile (*.txt) gespeichert. Außerdem ist es möglich einen Bericht erstellen zu lassen. Der Bericht ist eine PDF-Datei. Diese protokolliert zusätzlich zu den Ergebnissen einer Berechnung auch sämtliche vom Anwender getätigten Eingaben.
           Im Folgenden wird in Abschnitt 2 die graphische Benutzeroberfläche von INARA und in Abschnitt 3 der Aufbau des Inputfiles beschrieben.
         </div>
-        <div name="chapter2">
+        <div id="chapter2">
           <h2>2. Graphische Benutzeroberfläche</h2>
           Die graphische Benutzeroberfläche von INARA kann
           <ol>
@@ -113,7 +113,7 @@
             3-Informationsbereich;
           </div>
           Um nun eine Rissfortschrittsberechnung durchzuführen, sind wie bereits oben erwähnt, die verschiedenen Schritte im Navigationsbereich von oben nach unten sequentiell durchzuarbeiten.
-          <div name="Modell-Geometrie (Schritt 1)">
+          <div id="modellGeometrie">
             Im ersten Schritt der Rissfortschrittsberechnung sind die Geometrie des Ausgangsrisses / der
             Startkerbe sowie die Belastungsart eines zyklisch belasteten Bauteils zu definieren. Es stehen zwei
             verschiedene Modelle zur Auswahl: Achse bzw. SEB.
@@ -147,8 +147,8 @@
             nur der optischen Darstellung und hat nichts mit der späteren Rissfortschrittsberechnung zu tun!)
             <h4>Belastungsart (Abb. 2-12)</h4>
             Letztendlich kann auch noch zwischen zwei verschiedenen Belastungsarten gewählt werden, nämlich
-            der reinen Biegung und der Umlaufbiegung.
-            <img class="center" src="./src/img/geometry_axle.PNG" alt=""/>
+            der reinen Biegung und der Umlaufbiegung (Abb. 2-12).
+            <img class="center" src="./src/img/geometry_axle.png" alt=""/>
           <div class="subtitle">
             <b>Abbildung 2.</b> Eingabemaske für Modellgeometrie Achse.
             1-Definition Wellengeometrie;
@@ -170,7 +170,7 @@
             <h4>Belastungsart (Add. 3-4)</h4>
             Zusätzlich ist es möglich, die Belastungsart auszuwählen. Hier wird zwischen Drei-, Vier- und Achtpunkt-Biegebelastung unterschieden.
           </div>
-            <img class="center" src="./src/img/geometry_seb.PNG" alt=""/>
+            <img class="center" src="./src/img/geometry_seb.png" alt=""/>
             <div class="subtitle">
               <b>Abbildung 3.</b> Eingabemaske für Modellgeometrie SEB.
                 1-Definition Probengeometrie;
@@ -178,7 +178,7 @@
                 3-Darstellung bzw. Aktualisierung der eingegebenen Biegeprobengeometrie;
                 4-Definition der Belastungsart.
             </div>
-          <div name="Blockdefinition (Schritt 2)">
+          <div id="blockdefinition">
             <h3>Blockdefinition (Schritt 2)</h3>
             In diesem Schritt können Blocklastfolgen erstellt und bearbeitet werden. Eine neue Blocklastfolge kann entweder mit einem Doppelklick auf ‚Lastdefinition‘ im Navigationsbereich oder durch Drücken eines Buttons im Eingabebereich hinzugefügt werden. Im Eingabebereich befindet sich auch ein Button zum Einlesen bereits vorhandener Blocklastfolgen. Neu hinzugefügte Blocklastfolgen werden automatisch benannt (Blocklastfolge 0 .. Blocklastfolge X) und sofort im Navigationsbereich angezeigt. Mit Rechtsklick auf eine bestimmte Blocklastfolge kann diese umbenannt oder gelöscht werden.
             <br>
@@ -189,8 +189,9 @@
               <li>Durch einen Klick mit der rechten Maustaste auf die entsprechende Blocklastfolge und auswählen des Menüpunktes Löschen.</li>
               <li>Durch Betätigen des Entfernen-Buttons (Abb. 4-7).</li>
             </ol>
-            Erstellte Blocklastfolgen können auch in Dateien abgespeichert (Abb. 4-8) bzw. grafisch dargestellt werden (Abb. 4-9, Abb. 5).
-            <img class="center" src="./src/img/loads_data.PNG" alt=""/>
+
+            Erstellte Blocklastfolgen können auch in Dateien abgespeichert (Abb. 4-6) bzw. grafisch dargestellt werden (Abb. 4-9, Abb. 5).
+            <img class="center" src="./src/img/loads_data.png" alt=""/>
             <div class="subtitle">
               <b>Abbildung 4.</b> Eingabemaske für die Definition von Blöcken.
               1-Neue Blocklast hinzufügen;
@@ -205,7 +206,7 @@
               10-laufende Nummer der einzelnen Blöcke einer Blocklastfolge.
               11-Einzellastauswahl
             </div>
-            <img class="center" src="./src/img/loads_preview.PNG" alt=""/>
+            <img class="center" src="./src/img/loads_preview.png" alt=""/>
             <div class="subtitle">
               <b>Abbildung 5.</b> Vorschau der aktuellen Blocklastfolge.
               1-ursprüngliche Diagrammdarstellung wiederherstellen;
@@ -216,7 +217,7 @@
               6-Diagrammoptionen.
             </div>
           </div>
-          <div name="Last-Zeit-Reihenfolge (Schritt 3)">
+          <div id="lastZeitReihenfolge">
             <h3>Last-Zeit-Reihenfolge (Schritt 3)</h3>
             Im Schritt 3 wird nun die Last-Zeit-Reihenfolge (LZR) festgelegt, welche zur Rissfortschrittsberechnung
               herangezogen werden soll. Dieses Last-Zeit-Reihenfolge kann sich aus einem oder beliebig vielen in
@@ -227,12 +228,12 @@
               <li>im rechten Textfeld sidn diejenigen Blocklastfolgen die zur Berechnung des Rissfortschritts herangezogen werden (Abb. 6-2)</li>
             </ul>
             Um nun Blocklastfolgen bei der Berechnung zu berücksichtigen oder nicht, muss die entsprechende Blocklastfolge mittels Mausklick markiert und mit den in Abb. 6-3 gezeigten Pfeilen zur Last-Zeit-Reihenfolge für die Berechnung hinzugefügt oder eben entfernt werden. Alle Blocklastfolgen, die sich zum Zeitpunkt des Startens der Berechnung im rechten Fenster befinden, werden sequentiell von oben nach unten in der Rissfortschrittsberechnung berücksichtigt. Die Reihenfolge der Blocklastfolgen kann mittels Pfeil-oben bzw. Pfeil-unten geändert werden (Abb. 6-4). Erstellte Last-Zeit-Reihenfolgen können analog zu den Blocklastfolgen in Schritt 2 auch in Dateien abgespeichert (Abb. 6-5) bzw. grafisch dargestellt werden (Abb. 6-6).
-            <img class="center" src="./src/img/load_order.PNG" alt=""/>
+            <img class="center" src="./src/img/load_order.png" alt=""/>
             <div class="subtitle">
               <b>Abbildung 6.</b> Last-Zeit-Reihenfolge für Berechnung festlegen. 1-Anzeige aller zur Verfügung stehenden Blocklastfolgen; 2-Anzeige aller zur Berechnung verwendeten Blocklastfolgen; 3-Verschieben zwischen den beiden Anzeigen; 4-Reihung der Blocklastfolgen ändern; 5-Speichern der aktuellen Last-Zeit-Reihenfolge; 6-Vorschau der aktuellen Last-Zeit-Reihenfolge erstellen/aktualisieren.
             </div>
           </div>
-          <div name="Materialgesetz (Schritt 4)">
+          <div id="materialgesetz">
             <h3>Materialgesetz (Schritt 4)</h3>
             Im Schritt 4 muss das zur Berechnung herangezogene Materialgesetz festgelegt und die jeweiligen Parameter definiert werden. Es stehen insgesamt vier Materialgesetze zur Auswahl:
             <ol>
@@ -245,17 +246,17 @@
               <li><b>Tabellarisch</b></li>
               <p>Für dieses Materialmodell sind einzelne Punkte der Risswachstumskurve tabellarisch zu hinterlegen. Gleich wie beim Materialgesetz Bilinear müssen wieder mindestens zwei Werte für zwei verschiedene R-Werte angegeben werden.</p>
             </ol>
-            Die Eingabe und Bearbeitung der einzelnen Parameter erfolgt tabellarisch, wobei sich der Eingabebereich für die Materialgesetze 1-3 bis auf die unterschiedlichen Eingabeparameter nicht wesentlich unterscheidet (siehe Abb. 7). Zur Berechnung des Rissfortschritts werden nur ausgewählte Datensätze (im Fall eines bilinearen Materialgesetzes, siehe auch Abb. 7-1) bzw. ein ausgewählter Datensatz (bei den Materialgesetzen NASGRO bzw. MCL-Kurzriss) herangezogen. Einmal erstellte Materialgesetze können in einer Datei gespeichert und bei anderen Berechnungen wieder eingelesen werden. Der aktuelle Dateipfad wird im Eingabefenster angezeigt (Abb. 7-2). Eine Vorschau der aktuell ausgewählte(n) Risswachstumskurve(n) erhält man über den in Abb. 7-3 dargestellten Button.
-            <img class="center" src="./src/img/material_law_bilinear.PNG" alt=""/>
+            Die Eingabe und Bearbeitung der einzelnen Parameter erfolgt tabellarisch, wobei sich der Eingabebereich für die Materialgesetze 1-3 bis auf die unterschiedlichen Eingabeparameter nicht unterscheidet (siehe Abb. 7). Zur Berechnung des Rissfortschritts werden nur ausgewählte Datensätze (im Fall eines bilinearen Materialgesetzes, siehe auch Abb. 7-1) bzw. ein ausgewählter Datensatz (bei den Materialgesetzen NASGRO bzw. MCL-Kurzriss) herangezogen. Einmal erstellte Materialgesetze können in einer Datei gespeichert und bei anderen Berechnungen wieder eingelesen werden. Der aktuelle Dateipfad wird im Eingabefenster angezeigt (Abb. 7-2). Eine Vorschau der aktuell ausgewählte(n) Risswachstumskurve(n) erhält man über den in Abb. 7-3 dargestellten Button. <br>
+              Der Eingabebereich für das tabellarische Materialgesetz unterscheidet sich von den anderen
+            Materialgesetzen (siehe Abb. 8). Beim tabellarischen Materialgesetz muss für jeden R-Wert eine eigene Tabelle erstellt werden (Abb. 8-1), welche Spannungsintensitätsfaktoren und zugehörige Rissfortschrittsraten enthält. Alle definierten Rissfortschrittskurven werden in Registerform im Eingabefenster dargestellt, wobei man zwischen den verschiedenen Kurven (jede Kurve entspricht einem R-Wert) durch einen Mausklick auf das entsprechende Register hin- und herschalten kann (Abb. 8-2). Um eine Kurve für einen neuen R-Wert zu erstellen bzw. hinzuzufügen, muss der in Abb. 8-3 dargestellte Button gedrückt werden.
+            <img class="center" src="./src/img/material_law_bilinear.png" alt=""/>
             <div class="subtitle">
               <b>Abbildung 7.</b> Eingabemaske Materialgesetz Bilinear.
               1-Auswahl der zur Berechnung herangezogenen Datensätze;
               2-Dateipfad des aktuellen Datensatzes;
               3-Vorschau der ausgewählten Rissfortschrittskurven.
             </div>
-            <br>
-            Der Eingabebereich für das tabellarische Materialgesetz unterscheidet sich von den anderen Materialgesetzen (siehe Abb. 8). Beim tabellarischen Materialgesetz muss für jeden R-Wert eine eigene Tabelle erstellt werden (Abb. 8-1), welche Spannungsintensitätsfaktoren und zugehörige Rissfortschrittsraten enthält. Alle definierten Rissfortschrittskurven werden in Registerform im Eingabefenster dargestellt, wobei man zwischen den verschiedenen Kurven (jede Kurve entspricht einem R-Wert) durch einen Mausklick auf das entsprechende Register hin- und herschalten kann (Abb. 8-2). Um eine Kurve für einen neuen R-Wert zu erstellen bzw. hinzuzufügen, muss der in Abb. 8-3 dargestellte Button gedrückt werden.
-            <img class="center" src="./src/img/material_law_tabular.PNG" alt=""/>
+            <img class="center" src="./src/img/material_law_tabular.png" alt=""/>
             <div class="subtitle">
               Eingabemaske Materialgesetz Tabellarisch.
               1-Definition Rissfortschrittskurve für aktuellen R-Wert;
@@ -263,7 +264,7 @@
               3-Hinzufügen einer neuen Rissfortschrittskurve.
             </div>
           </div>
-          <div name="Berechnen (Schritt 5)">
+          <div id="berechnen">
             <h3>Berechnen (Schritt 5)</h3>
             <h4>Abbruchkriterium (Abb. 9-1)</h4>
             Die Berechnung des Rissfortschritts erfolgt auf Basis der in den Schritten 1-4 vorgegebenen Parameter. Im Schritt 5 muss ein Abbruchkriterium gewählt werden (Abb. 9-1), wobei die Rissfortschrittsberechnung nach einer bestimmten Anzahl von Lastwechseln $N_{max}$ oder nach einer erreichten Risslänge $a_{max}$ gestoppt wird.
@@ -273,7 +274,7 @@
             <h4>Lastverarbeitung / Abarbeitung der Last-Zeit-Reihenfolge (Abb. 9-4)</h4>
             Es kann des Weiteren auch die Art und Weise definiert werden, wie eine Last-Zeit-Reihenfolge abgearbeitet werden soll. Dabei kann zwischen Sequentiell und Gewichtet unterschieden werden:
             <p class="col-md-12"></p>
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-11 col-md-offset-1">
               <div class="col-md-2">
                 Sequentiell:
               </div>
@@ -282,7 +283,7 @@
               </div>
             </div>
             <p class="col-md-12"></p>
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-11 col-md-offset-1">
               <div class="col-md-2">
                 Gewichtet:
               </div>
@@ -295,7 +296,7 @@
             Hier kann eingestellt werden ob Effekte wie Überlasten oder oxidinduziertes Rissschließen beachtet werden sollen. Welche Effekte verfügbar sind ist von den Materialgesetzen abhängig. Der 'retardation factor' gibt das minimale Risswachstum an das auf jeden Fall auftritt, damit die Rechnung nicht zu einem kompletten Stillstand kommt.
             <h4>Start/Stop der Berechnung (Abb. 9-5,6)</h4>
             Gestartet wird eine Berechnung schließlich durch einen Mausklick auf ‚Berechnung starten‘ (Abb. 9-5). Eine laufende Berechnung kann auch jederzeit mit einem Klick auf den Button Abbrechen (Abb. 9-6) beendet werden. Die Ergebnisse der Berechnung sind dann im letzten Punkt des Navigationsbereiches Ergebnisse dargestellt.
-            <img class="center" src="./src/img/solve.PNG" alt=""/>
+            <img class="center" src="./src/img/solve.png" alt=""/>
             <div class="subtitle">
               <b>Abbildung 9.</b> Eingabemaske für Schritt 5: Berechnen.
               1-Abbruchkriterium definieren;
@@ -307,7 +308,7 @@
               7-Optionen für Last-Reihenfolge-Effekte
             </div>
           </div>
-          <div name="Ergebnisse">
+          <div id="ergebnisse">
             <h3>Ergebnisse</h3>
             Hier werden die Ergebnisse der durchgeführten Berechnungen aufgelistet und mit einer Zufallsbezeichnung versehen. Mittels Rechtsklick auf das entsprechende Ergebnis kann dieses umbenannt oder gelöscht werden.
             <br>
@@ -388,7 +389,7 @@
             </div>
           </div>
         </div>
-        <div name="chapter3">
+        <div id="chapter3">
           <h2>3. Aufbau des Inputfiles</h2>
           Wie bereits in der Kurzbeschreibung erwähnt, wird von Entwicklerseite empfohlen, ein Inputfile
           (*.json) über die graphische Benutzeroberfläche zu erstellen. Da aber auch die Möglichkeit besteht,
@@ -520,6 +521,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--    <script src="./src/js/jquery.fullPage.min.js"></script> -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!--    <script src="js/jspdf.js" type="text/javascript" charset="utf-8" async defer></script>-->
