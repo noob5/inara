@@ -1,3 +1,7 @@
+body {
+    background: white;
+}
+
 #editor { 
     position: relative;
     top: 0;
@@ -97,8 +101,32 @@
   float: right;
 }
 
+#firstPage{
+    visibility: hidden;
+    display: none;
+}
+
+/*#################*/
+/* Media Formating */
 @media screen and (max-width: 1024px) {
     .sidenav {
         display: none !important;
     }
+}
+
+/*#################*/
+/* Print Formating */
+
+#menu { 
+    display: none; 
+} 
+
+#wrapper, 
+#content { 
+    width: auto; margin: 0 5%; 
+    padding: 0; 
+    border: 0; 
+    float: none !important; 
+    color: black; 
+    background: transparent; 
 }
