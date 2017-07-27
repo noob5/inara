@@ -5,7 +5,11 @@
 		margin: 2cm;
 	}
 
-	#firstPage{
+    #webPageStart{
+            visibility: hidden;
+        }
+
+	#printPageStart{
 		visibility: visible;
 		display: block;
 	    text-align: center;
@@ -78,6 +82,10 @@ div {
 	page-break-after: avoid;
 }
 
+h1.manual_title {
+    font-size: 60pt;
+}
+
 h2 {
 	page-break-before: always;
 }
@@ -85,7 +93,7 @@ h2 {
 /* insert your style declarations here */
 	body { 
 		background: white; 
-		font-size: 12pt; 
+		font-size: 14pt;
 	}
 		
 	.navbar { 
