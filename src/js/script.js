@@ -22,7 +22,7 @@ $( document ).ready(function() {
 	// Floating Nav
 	$(document).scroll(function() {
 	  var y = $(this).scrollTop();
-	  if (y > 400) {
+	  if (y > 000) {
 	    $('.sidenav').fadeIn();
 	  	$('.sidenav').removeClass('hidden');
 	  } else {
