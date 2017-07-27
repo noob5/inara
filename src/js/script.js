@@ -22,7 +22,8 @@ $( document ).ready(function() {
 	// Floating Nav
 	$(document).scroll(function() {
 	  var y = $(this).scrollTop();
-	  if (y > 600) {
+	  var bottom_of_object = $("#chapter1").offset().top + $("#chapter1").outerHeight();
+	  if (y > bottom_of_object) {
 	    $('.sidenav').fadeIn();
 	  	$('.sidenav').removeClass('hidden');
 	  } else {
