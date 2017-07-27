@@ -11,6 +11,13 @@ $( document ).ready(function() {
 	editor.setOptions({
 		maxLines: Infinity
 	});
+
+	$('#fullpage').fullpage({
+		sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke'],
+		anchors: ['chapter1', 'chapter2', 'modellGeometrie', 'blockdefinition', 'lastZeitReihenfolge', 'materialgesetz', 'berechnen', 'ergebnisse', 'chapter3'],
+		menu: '#mySidenav',
+		scrollingSpeed: 1700
+	});
   
 	// Floating Nav
 	$(document).scroll(function() {
@@ -27,13 +34,3 @@ $( document ).ready(function() {
 	function printPage(){
 		window.print();
 	}
-
-$(document).ready(function() {
-	$('#fullpage').fullpage({
-		sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
-		anchors: ['chapter1', 'chapter2', 'modellGeometrie', 'blockdefinition', 'lastZeitReihenfolge', 'materialgesetz', 'berechnen', 'ergebnisse', 'chapter3'],
-		menu: '#menu',
-		scrollingSpeed: 1700
-	});
-
-});
