@@ -20,6 +20,17 @@ body {
     width: 100%;
 }*/
 
+td {
+    padding: 3px;
+}
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
 .no-decorator {
 	list-style-type: none;
 }
