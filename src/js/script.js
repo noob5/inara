@@ -12,17 +12,17 @@ $( document ).ready(function() {
 		maxLines: Infinity
 	});
 
-	$('#fullpage').fullpage({
+/*	$('#fullpage').fullpage({
 		sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke'],
 		anchors: ['chapter1', 'chapter2', 'modellGeometrie', 'blockdefinition', 'lastZeitReihenfolge', 'materialgesetz', 'berechnen', 'ergebnisse', 'chapter3'],
 		menu: '#mySidenav',
 		scrollingSpeed: 1700
-	});
+	});*/
   
 	// Floating Nav
 	$(document).scroll(function() {
 	  var y = $(this).scrollTop();
-	  if (y > 000) {
+	  if (y > 600) {
 	    $('.sidenav').fadeIn();
 	  	$('.sidenav').removeClass('hidden');
 	  } else {
