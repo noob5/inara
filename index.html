@@ -58,28 +58,27 @@
       </nav>
 
       <div id="mySidenav" class="sidenav hidden">
-        <li data-menuanchor="#chapter1"><a class="btn btn-default" href="#chapter1" id="_1">1. Kurzbeschreibung</a></li>
-        <li data-menuanchor="#chapter2"><a class="btn btn-default" href="#chapter2" id="_2">2. Benutzeroberfläche</a></li>
-        <li data-menuanchor="#modellGeometrie"><a class="btn btn-default" href="#modellGeometrie" id="_2_1">Modell-Geometrie</a></li>
-        <li data-menuanchor="#blockdefinition"><a class="btn btn-default" href="#blockdefinition" id="_2_2">Blockdefinition</a></li>
-        <li data-menuanchor="#lastZeitReihenfolge"><a class="btn btn-default" href="#lastZeitReihenfolge" id="_2_3">Last-Zeit-Reihenfolge</a></li>
-        <li data-menuanchor="#materialgesetz"><a class="btn btn-default" href="#materialgesetz" id="_2_4">Materialgesetz</a></li>
-        <li data-menuanchor="#berechnen"><a class="btn btn-default" href="#berechnen" id="_2_5">Berechnen</a></li>
-        <li data-menuanchor="#ergebnisse"><a class="btn btn-default" href="#ergebnisse" id="_2_6">Ergebnisse</a></li>
-        <li data-menuanchor="#chapter3"><a class="btn btn-default" href="chapter3" id="_3">3. Aufbau des Inputfiles</a></li>
-        </li>
+        <a class="btn btn-default" href="#chapter1" id="_1">1. Kurzbeschreibung</a>
+        <a class="btn btn-default" href="#chapter2" id="_2">2. Benutzeroberfläche</a>
+        <a class="btn btn-default" href="#modellGeometrie" id="_2_1">Modell-Geometrie</a>
+        <a class="btn btn-default" href="#blockdefinition" id="_2_2">Blockdefinition</a>
+        <a class="btn btn-default" href="#lastZeitReihenfolge" id="_2_3">Last-Zeit-Reihenfolge</a>
+        <a class="btn btn-default" href="#materialgesetz" id="_2_4">Materialgesetz</a></li>
+        <a class="btn btn-default" href="#berechnen" id="_2_5">Berechnen</a></li>
+        <a class="btn btn-default" href="#ergebnisse" id="_2_6">Ergebnisse</a></li>
+        <a class="btn btn-default" href="chapter3" id="_3">3. Aufbau des Inputfiles</a></li>
       </div>
 
       <div  class="col-md-offset-1 col-md-10 tutorial" id="fullpage">
         <img class="center" src="./src/img/Head.png" alt=""/>
-        <div class="section" name="chapter1">
+        <div id="chapter1">
           <h2>1. Kurzbeschreibung</h2>
           <b>INARA</b> (<b>IN</b>tegrity <b>A</b>ssessment for <b>R</b>ailway <b>A</b>xles) ist eine Software zur Berechnung des Ermüdungsrisswachstums in Radsatzwellen. Mögliche Einsatzgebiete sind Lebensdauerberechnungen in Konstruktion, Instandhaltung und Schadensanalyse. Das Risswachstum kann mittels verschiedener frei wählbarer Rissfortschrittsgesetze unter Verwendung unterschiedlicher Integrationsmethoden bis zu einem definierbaren Abbruchkriterium berechnet werden.
           Das Programm besteht aus einer graphischen Benutzeroberfläche (GUI) und einem textbasierten Solver. Die Berechnung selbst erfolgt im Solver, der eine Datei mit sämtlichen notwendigen Parametern (Inputfile, *.json) erwartet. Das Inputfile kann vom Benutzer selbst erstellt werden; der einfachere Weg ist aber, das Inputfile in der graphischen Benutzeroberfläche automatisch erstellen zu lassen; die Benutzeroberfläche ermöglicht auch den Aufruf des Solvers und das Betrachten der Ergebnisse.
           Die Ergebnisse einer Berechnung werden in einer Datenbank (*.db) gespeichert, auf welche mit Hilfe der graphischen Benutzeroberfläche von INARA zugegriffen werden kann. Hier können die berechneten Rissfortschrittsdaten beliebig kombiniert und in Diagrammen graphisch dargestellt oder in Tabellenform exportiert werden. Außerdem ist es möglich einen Bericht erstellen zu lassen. Der Bericht ist eine PDF-Datei. Er protokolliert zusätzlich zu den Ergebnissen einer Berechnung auch sämtliche vom Anwender getätigten Eingaben.
           Im Folgenden wird in Abschnitt 2 die graphische Benutzeroberfläche von INARA und in Abschnitt 3 der Aufbau des Inputfiles beschrieben.
         </div>
-        <div class="section" name="chapter2">
+        <div id="chapter2">
           <h2>2. Graphische Benutzeroberfläche</h2>
           Die graphische Benutzeroberfläche von INARA kann
           <ol>
@@ -106,7 +105,7 @@
             <b>Abbildung 1.</b> Verschiedene Bereiche der Benutzeroberfläche: <b>a</b> Navigationsbereich, <a>b</a> Eingabe- und Ergebnisbereich, <a>c</a> Informationsbereich.
           </div>
           Um nun eine Rissfortschrittsberechnung durchzuführen, sind wie bereits oben erwähnt, die verschiedenen Schritte im Navigationsbereich von oben nach unten sequentiell durchzuarbeiten.
-          <div class="section" name="modellGeometrie">
+          <div id="modellGeometrie">
             Im ersten Schritt der Rissfortschrittsberechnung sind die Geometrie des Ausgangsrisses / der
             Startkerbe sowie die Belastungsart eines zyklisch belasteten Bauteils zu definieren. Es stehen zwei
             verschiedene Modelle zur Auswahl: Achse bzw. SEB.
@@ -176,7 +175,7 @@
                 3-Darstellung bzw. Aktualisierung der eingegebenen Biegeprobengeometrie;
                 4-Definition der Belastungsart.
             </div>
-          <div class="section" name="blockdefinition">
+          <div id="blockdefinition">
             <h3>Blockdefinition (Schritt 2)</h3>
             In diesem Schritt können Blocklastfolgen erstellt und bearbeitet werden. Eine neue Blocklastfolge kann
             entweder mit einem Doppelklick auf ‚Blockdefinition‘ im Navigationsbereich oder durch Drücken eines Buttons
@@ -229,7 +228,7 @@
               6-Diagrammoptionen.
             </div>
           </div>
-          <div class="section" name="lastZeitReihenfolge">
+          <div id="lastZeitReihenfolge">
             <h3>Last-Zeit-Reihenfolge (Schritt 3)</h3>
             Im Schritt 3 wird nun die Last-Zeit-Reihenfolge (LZR) festgelegt, welche zur Rissfortschrittsberechnung
               herangezogen werden soll. Dieses Last-Zeit-Reihenfolge kann sich aus einem oder beliebig vielen in
@@ -245,7 +244,7 @@
               <b>Abbildung 6.</b> Last-Zeit-Reihenfolge für Berechnung festlegen. 1-Anzeige aller zur Verfügung stehenden Blocklastfolgen; 2-Anzeige aller zur Berechnung verwendeten Blocklastfolgen; 3-Verschieben zwischen den beiden Anzeigen; 4-Reihung der Blocklastfolgen ändern; 5-Speichern der aktuellen Last-Zeit-Reihenfolge; 6-Vorschau der aktuellen Last-Zeit-Reihenfolge erstellen/aktualisieren.
             </div>
           </div>
-          <div class="section" name="materialgesetz">
+          <div id="materialgesetz">
             <h3>Materialgesetz (Schritt 4)</h3>
             Im Schritt 4 muss das zur Berechnung herangezogene Materialgesetz festgelegt und die jeweiligen Parameter definiert werden. Es stehen insgesamt vier Materialgesetze zur Auswahl:
             <ol>
@@ -276,7 +275,7 @@
               3-Hinzufügen einer neuen Rissfortschrittskurve.
             </div>
           </div>
-          <div class="section" name="berechnen">
+          <div id="berechnen">
             <h3>Berechnen (Schritt 5)</h3>
             Die Berechnung des Rissfortschritts erfolgt auf Basis der in den Schritten 1-4 vorgegebenen Parameter. Im Schritt 5 kann noch ein Abbruchkriterium ausgewählt werden (siehe Abb. 9-1), wobei die Rissfortschrittsberechnung nach einer bestimmten Anzahl von Lastwechseln oder nach einer erreichten Risslänge abgebrochen werden kann. Wie genau die Rissfortschrittsrechnung durchgeführt werden soll, kann durch die in Abb. 9-2 dargestellten Einstellungen definiert werden. Dabei kann die Schrittweite der Integration N sowie die Anzahl der zu berücksichtigenden Nachkommastellen Rdigits definiert werden (je größer N bzw. je kleiner Rdigits, umso schneller – aber auch etwas ungenauer – erfolgt die Berechnung des Rissfortschrittes). Weiters kann zwischen verschiedenen Integrationsmethoden gewählt werden.
             <br>
@@ -314,7 +313,7 @@
               6-laufende Berechnung abbrechen.
             </div>
           </div>
-          <div class="section" name="ergebnisse">
+          <div id="ergebnisse">
             <h3>Ergebnisse</h3>
             Hier werden die Ergebnisse der durchgeführten Berechnungen aufgelistet und mit einer Zufallsbezeichnung versehen. Mittels Rechtsklick auf das entsprechende Ergebnisfile kann dieses umbenannt oder gelöscht werden.
             <br>Ist ein File markiert, kann man sich die Ergebnisse der Rissfortschrittsberechnung graphisch darstellen lassen, wobei man frei wählen kann, welche Größen man auf der x- bzw. der y-Achse plotten will (siehe Abb. 10). Die Auswahlmöglichkeiten sind:
@@ -335,7 +334,7 @@
             </div>
           </div>
         </div>
-        <div class="section" name="chapter3">
+        <div id="chapter3">
           <h2>3. Aufbau des Inputfiles</h2>
           Wie bereits in der Kurzbeschreibung erwähnt, wird von Entwicklerseite empfohlen, ein Inputfile
           (*.json) über die graphische Benutzeroberfläche zu erstellen. Da aber auch die Möglichkeit besteht,
