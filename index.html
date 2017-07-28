@@ -345,8 +345,10 @@
           </div>
           <div class="article" id="ergebnisse">
             <h3>Ergebnisse</h3>
-            Hier werden die Ergebnisse der durchgeführten Berechnungen aufgelistet und mit einer Zufallsbezeichnung versehen. Mittels Rechtsklick auf das entsprechende Ergebnis kann dieses umbenannt oder gelöscht werden.
-            <br>
+            Hier werden die Ergebnisse der durchgeführten Berechnungen aufgelistet und mit einer Zufallsbezeichnung versehen. Mittels Rechtsklick auf das entsprechende Ergebnis kann dieses mittels Kontextmenü umbenannt oder gelöscht werden.
+            <h4>Löschen</h4>
+            Wenn man ein Ergebnis in INARA löscht so werden seine <b>Inputdatei</b>, die zugehörige <b>Datenbank</b> und das daraus generierte <b>Textfile</b> gelöscht. Falls das Verzeichnis in dem diese Dateien lagen nun leer ist wird auch dieses entfernt. Wenn nun aber ein Bericht erzeugt wurde so wird dieser nicht automatisch gelöscht und das Verzeichnis bleibt bestehen. Dieses Verhalten liegt in der Tatsache begründet, dass man den Solver von INARA auch ohne graphischer Oberfläche starten kann und dessen Rechnungen und Datenbanken von den Nutzern meist in nur einem Verzeichnis gesammelt werden. All diese Ergebnisse können aber auch von der graphischen Oberfläche aus geöffnet werden. Falls nun der Benutzer eine dieser Rechnungen über INARA löscht dürfen nur die eindeutig der Rechnung zuordenbaren Dateien entfernt werden und nicht einfach ganze Verzeichnisse gelöscht werden. Die PDF-Reporte sind nicht einfach automatisiert einer bestimmten Rechnung zuordenbar da sie zu oft von Nutzern erstellt, umbenannt und oder verschoben werden.
+            <h4>Neuer Plot</h4>
             Ist ein Ergebnis ausgewählt, kann man sich die Ergebnisse der Rissfortschrittsberechnung, wie in zum Beispiel in Abbildung 10, graphisch darstellen lassen. Das Anzeigen der Ergebnisse funktioniert über den Button "Neuer Plot". Es öffnet sich ein Auswahldialog, bei dem die Werte für xx uns y-Achse wählbar sind.
             <br>
             Zur Auswahl stehen:
