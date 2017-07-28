@@ -59,7 +59,7 @@
       </nav>
 
       <div id="mySidenav" class="sidenav hidden">
-        <a class="btn btn-default" href="#chapter1" id="_1">1. Kurzbeschreibung</a>
+        <a class="btn btn-default" href="#chapter1" id="_1">1. Einleitung</a>
         <a class="btn btn-default" href="#chapter2" id="_2">2. Benutzeroberfläche</a>
         <a class="btn btn-default" href="#modellGeometrie" id="_2_1">Modell-Geometrie</a>
         <a class="btn btn-default" href="#blockdefinition" id="_2_2">Blockdefinition</a>
@@ -107,7 +107,7 @@
           F: +43 3842/45 9 22-500
         </div>
         <div class="article" id="chapter1">
-          <h2>1. Kurzbeschreibung</h2>
+          <h2>1. Einleitung</h2>
           <b>INARA</b> (<b>IN</b>tegrity <b>A</b>ssessment for <b>R</b>ailway <b>A</b>xles) ist eine Software zur Berechnung des Ermüdungsrisswachstums in Radsatzwellen. Mögliche Einsatzgebiete sind Lebensdauerberechnungen in Konstruktion, Instandhaltung und Schadensanalyse. Das Risswachstum kann mittels verschiedener frei wählbarer Rissfortschrittsgesetze unter Verwendung unterschiedlicher Integrationsmethoden bis zu einem definierbaren Abbruchkriterium berechnet werden.
           Das Programm besteht aus einer graphischen Benutzeroberfläche (GUI) und einem textbasierten Solver. Die Berechnung selbst erfolgt im Solver, der eine Datei mit sämtlichen notwendigen Parametern (Inputfile, *.json) erwartet. Das Inputfile kann vom Benutzer selbst erstellt werden; der einfachere Weg ist aber, das Inputfile in der graphischen Benutzeroberfläche automatisch erstellen zu lassen; die Benutzeroberfläche ermöglicht auch den Aufruf des Solvers und das Betrachten der Ergebnisse.
           Die Ergebnisse einer Berechnung werden in einer Datenbank (*.db) gespeichert, auf welche mit Hilfe der graphischen Benutzeroberfläche von INARA zugegriffen werden kann. Hier können die berechneten Rissfortschrittsdaten beliebig kombiniert und in Diagrammen graphisch dargestellt oder in Tabellenform exportiert werden. Zusätzlich zur Datenbank werden die Ergebnisse nach Abschluss einer Rechnung nochmals aus der Datenbank ausgelesen und in ein Textfile (*.txt) gespeichert. Außerdem ist es möglich einen Bericht erstellen zu lassen. Der Bericht ist eine PDF-Datei. Diese protokolliert zusätzlich zu den Ergebnissen einer Berechnung auch sämtliche vom Anwender getätigten Eingaben.
@@ -424,11 +424,23 @@
               <b>Abbildung 10.</b>
               Ergebnisfenster mit geplotteter Risslänge in beide Richtungen über Anzahl der Lastwechsel, kombiniert mit der Lastamplitude $\sigma_a$ in rot. Die
             </div>
+            <h4>In Zwischenablage kopieren</h4>
+            Um die Ergebnisse der Rechnung in die Zwischenablage zu kopieren anstatt sie graphish zu plotten dient der Button "In Zwischenablage kopiere". Wenn dieser geklicht wird öffnet sich das selbe Dialogfenster wie beim Button "Neuer Plot". Hier sind nun die gewünschten Spalten/Daten zu wählen. Nach einem Klick auf OK sind die Daten in der Zwischenablage und können in zum Beispiel Excel oder Origin eingefügt werden. (mittels Einfügen Menü oder Tastenkombination [Strg]+[V]).
+            <h4>Bericht erstellen</h4>
+            Die Ergebnisse können auch in einem PDF-Bericht zusammengefasst werden. Nach einem Klick auf den Button "Bericht erstellen" öffnet sich ein Informationsdialog, der den Nutzer warnt, dass das Erstellen des Berichtes einige Zeit in Anspruch nehmen kann. Nach dem Schließen des Dialoges beginnt die Erstellung des Berichtes. Im Bericht sind die Eistellungen mit denen der Solver gelaufen ist zusammengefasst. Außerdem ist eine Tabelle mit ausgewählten Werten aus der Datenbank erhalten. Es werden soviele Zeilen dargestellt wie auf einer A4-Seite Platz finden. Die erste Zeile enthält die Startwerte, die letzte die Endwerte und alle Zeilen dzwischen sind ein mölichst geleichmäßiger Auszug aus der Datenbank. Auf der letzten Seite ist ein Plot der Risstiefe $a$ über $N$ in blau zu sehen; die roten Kreuzchen auf diesem Plot entsprechen den Daten aus der oben erwähnten Tabelle.
+            <h4>Daten inspizieren</h4>
+            Hier gibt es die Möglichkeit die im Verlauf der Berechnung ertselllten Dateien zu öffnen ohne den Explorer nutzen zu müssen.
+            <h5>JSON-Datei öffnen</h5>
+            Öffnet die Solverdatei mit dem in Windows festgelegten Standardprogramm. Falls man vor hat den Solver in Zukunft ohne graphischer Oberflache zu nutzen sind die hier erstellten Solvedateien ein sehr guter Ausgangspunkt.
+            <h5>Datenbank öffnen</h5>
+            Öffnet die Datenbank mit dem in Windows festgelegten Standardprogramm.
+            <h5>Textdatei öffnen</h5>
+            Öffnet die Textdatei mit dem in Windows festgelegten Standardprogramm.
           </div>
         </div>
         <div class="article" id="chapter3">
           <h2>3. Aufbau des Inputfiles</h2>
-          Wie bereits in der Kurzbeschreibung erwähnt, wird von Entwicklerseite empfohlen, ein Inputfile
+          Wie bereits in der Einleitung erwähnt, wird von Entwicklerseite empfohlen, ein Inputfile
           (*.json) über die graphische Benutzeroberfläche zu erstellen. Da aber auch die Möglichkeit besteht,
           den Solver extra zu starten (mainsolver.exe), wird hier am Beispiel der obigen Rechnung der Aufbau eines *.json-Files
           beschrieben.
