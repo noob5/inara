@@ -112,7 +112,7 @@ table tr:nth-child(odd) {
   float: right;
 }
 
-#firstPage{
+#printPageStart{
     visibility: hidden;
     display: none;
 }
