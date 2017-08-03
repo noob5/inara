@@ -1,5 +1,10 @@
 body {
     background: white;
+    text-align: justify;
+}
+
+.subtitle {
+    margin-bottom: 25px;
 }
 
 #editor { 

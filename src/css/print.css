@@ -1,5 +1,11 @@
 @media print {
 
+	text-align: justify;
+
+	.subtitle {
+	    margin-bottom: 25px;
+	}
+
 	@page {
 		size: A4;
 		margin: 2cm;
