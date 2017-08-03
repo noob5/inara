@@ -565,6 +565,41 @@
   "type": "solver_dict" # zeigt an, dass es sich bei dieser Datei um Daten für den Solver/eine Berechnung handelt.
 }
           </div>
+          <h3>"type": "file"</h3>
+          Wenn die graphisch Oberfläche eine json Datei erstellt, dann wird INARA alle benötigten Daten in die JSON-Datei schreiben. Für einen Nutzer der nur den Solver verwendet ist es jedoch ümständlich und zeitraubend alle Daten (vielleicht sogar von Hand) einzutragen. Daher gibt es Bei manchen Abschnitten die Möglichkeit den "type" von "data" auf "file" abzuändern. Dann erwartet der solver keinen Abschnitt "data" voller Zahlen mehr, sonderen ein Schlüsselwort "file", das den Pfad zu einer Datei angibt. Dies ist für die folgenden Abschnitte möglich:
+          <h4>bending_stress / Biegespannungen:</h4>
+          Dateityp: .csv
+          <ul>
+            <li>Spalten: x$[mm]$, y$[mm]$, sigma$[MPa]$</li>
+            <li>Trennzeichen: Tabulator \t</li>
+            <li>Kommentare: #</li>
+          </ul>
+          <h4>residual_stress / Eigenspannungen:</h4>
+          Dateityp: .csv
+          <ul>
+            <li>Spalten: r$[mm]$, sigma$[MPa]$</li>
+            <li>Trennzeichen: Tabulator \t</li>
+            <li>Kommentare: #</li>
+          </ul>
+      <h4>load_composition / Lastzusammenstellung:</h4>
+          Dateitypen: .json, .enc oder .csv
+          <ul>
+            <li>.json:</li>
+              <ul>
+                <li>Enthält Listen für R-Wert, cycles, amplitude, und Einmal-Lasten</li>
+              </ul>
+            <li>.enc:</li>
+              <ul>
+                <li>ist nur ein vom mcl-verschlüsseltes .json file (enc steht für encrypted)</li>
+              </ul>
+            <li>.csv:</li>
+              <ul>
+                <li>Trennzeichen: Tabulator \t</li>
+                <li>Kommentare: #</li>
+                <li>Spaltenreihenfolge: cycles$[-]$, R-Wert$[-]$, amplitude$[Mpa]$, one_time$[-]$</li>
+              </ul>
+              in der Spalte "one_time" steht entweder "true" oder "false"
+          </ul>
           <div id="lastDivStanding"></div>
         </div>
     </div><!-- /container -->
