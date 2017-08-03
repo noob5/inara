@@ -100,7 +100,7 @@ h2 {
 
 #chapter3 {
 	page-break-before: always;
-	margin-bottom: 2000px;
+	//margin-bottom: 2000px;
 }
 
 #lastDivStanding {
