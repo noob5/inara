@@ -4,6 +4,8 @@ $( document ).ready(function() {
 
 	// Ace Code Display
 	var editor = ace.edit("editor");
+	editor.container.style.height = "2000px";
+	console.log(editor.container.style.height);
 	editor.setTheme("ace/theme/xcode");
 	editor.getSession().setMode("ace/mode/json");
 	editor.setReadOnly(true);
@@ -11,6 +13,8 @@ $( document ).ready(function() {
 	editor.setOptions({
 		maxLines: Infinity
 	});
+	editor.setOption("wrap", 80);
+	document.body.style.overflow = "visible"
 
 /*	$('#fullpage').fullpage({
 		sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke'],
@@ -68,6 +72,7 @@ $( document ).ready(function() {
 	    }
 	  });
 });
+
 
 	function printPage(){
 		window.print();
