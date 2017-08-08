@@ -361,7 +361,12 @@
               <tr>
                 <td>$a$</td>
                 <td>$[mm]$</td>
-                <td>Risstiefe</td>
+                <td>Risstiefe, <br>oder kleine Halbachse des halbelliptischen Risses</td>
+              </tr>
+              <tr>
+                <td>$c$</td>
+                <td>$[mm]$</td>
+                <td>Große Halbachse des halbelliptischen Risses</td>
               </tr>
               <tr>
                 <td>$s$</td>
@@ -369,12 +374,12 @@
                 <td>Rissbreite an der Oberfläche<br>(Vorsicht: $s$ entspricht nur der halben Rissbreite an der Oberfläche)</td>
               </tr>
               <tr>
-                <td>$\frac{da_A}{dN}, \frac{da_S}{dN}$</td>
+                <td>$\frac{da}{dN}, \frac{ds}{dN}$</td>
                 <td>$[\frac{mm}{Lastwechsel}]$</td>
                 <td>Risswachstumsgeschwindigkeit in die Tiefe und an der Oberfläche</td>
               </tr>
               <tr>
-                <td>$\Delta K_A, \Delta K_S$</td>
+                <td>$\Delta K_A, \Delta K_C$</td>
                 <td>$[MPa\sqrt{m}]$</td>
                 <td>Schwingbreite des Spannungsintensitätsfaktors</td>
               </tr>
@@ -384,7 +389,7 @@
                 <td>Anzahl Lastwechsel</td>
               </tr>
               <tr>
-                <td>$R_A, R_S$</td>
+                <td>$R_A, R_C$</td>
                 <td>$[-]$</td>
                 <td>Spannungsverhältnis</td>
               </tr>
@@ -416,13 +421,13 @@
               <tr>
                 <td>$a/r$</td>
                 <td>$[-]$</td>
-                <td>Verhältnis von Achsenradius zu Risstiefe</td>
+                <td>Verhältnis von Risstiefe zu Achsenradius</td>
               </tr>
             </table>
             <img class="center" src="./src/img/result.png" alt=""/>
             <div class="subtitle">
               <b>Abbildung 10.</b>
-              Ergebnisfenster mit geplotteter Risslänge in beide Richtungen über Anzahl der Lastwechsel, kombiniert mit der Lastamplitude $\sigma_a$ in rot. Die
+              Ergebnisfenster mit geplotteter Risslänge in beide Richtungen a und s über Anzahl der Lastwechsel, kombiniert mit der Lastamplitude $\sigma_a$ in rot.
             </div>
             <h4>In Zwischenablage kopieren</h4>
             Um die Ergebnisse der Rechnung in die Zwischenablage zu kopieren anstatt sie graphish zu plotten dient der Button "In Zwischenablage kopiere". Wenn dieser geklicht wird öffnet sich das selbe Dialogfenster wie beim Button "Neuer Plot". Hier sind nun die gewünschten Spalten/Daten zu wählen. Nach einem Klick auf OK sind die Daten in der Zwischenablage und können in zum Beispiel Excel oder Origin eingefügt werden. (mittels Einfügen Menü oder Tastenkombination [Strg]+[V]).
